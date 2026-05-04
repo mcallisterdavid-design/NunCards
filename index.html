@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sisters of Saint Joseph — Philadelphia Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --border: #e0ddd6;
+    --border-strong: #c8c4bb;
+    --text: #1a1814;
+    --text-muted: #6b6760;
+    --text-hint: #9b9890;
+    --blue-bg: #e6f1fb;
+    --blue-text: #185fa5;
+    --blue-border: #b5d4f4;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1814;
+      --surface: #242220;
+      --border: #38352f;
+      --border-strong: #4a4740;
+      --text: #f0ede8;
+      --text-muted: #a09d98;
+      --text-hint: #6b6860;
+      --blue-bg: #0c2f52;
+      --blue-text: #85b7eb;
+      --blue-border: #185fa5;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .site-header {
+    background: var(--surface);
+    border-bottom: 0.5px solid var(--border);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .site-title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .site-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .filter-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-right: 4px;
+  }
+
+  input[type="text"], select {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  input[type="text"]:focus, select:focus {
+    border-color: var(--blue-border);
+    box-shadow: 0 0 0 3px rgba(24, 95, 165, 0.1);
+  }
+
+  .search-wrap { flex: 1; min-width: 180px; max-width: 320px; }
+  .search-wrap input { width: 100%; }
+
+  .count {
+    font-size: 12px;
+    color: var(--text-hint);
+    margin-bottom: 1rem;
+  }
+
+  .no-photo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-strong);
+    background: var(--surface);
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .no-photo-wrap input { margin: 0; cursor: pointer; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .card-photo-area {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #b5d4f4 0%, #85b7eb 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-photo-area.no-photo {
+    background: var(--border);
+  }
+
+  .card-photo-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-year-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #0c447c;
+    background: rgba(230, 241, 251, 0.92);
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .card-body {
+    padding: 12px 14px 14px;
+  }
+
+  .card-religious-name {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .card-surname {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-roles {
+    font-size: 11px;
+    color: var(--text-hint);
+    margin-top: 6px;
+  }
+
+  .empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .modal-backdrop.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    border: 0.5px solid var(--border-strong);
+    width: min(580px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1.75rem;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+  }
+
+  .modal-close:hover { background: var(--bg); }
+
+  .modal-top {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-right: 3rem;
+  }
+
+  .modal-photo-area {
+    width: 120px;
+    height: 152px;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #b5d4f4 0%, #85b7eb 100%);
+  }
+
+  .modal-photo-area.no-photo {
+    background: var(--border);
+  }
+
+  .modal-photo-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .modal-surname {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+
+  .modal-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    margin-top: 14px;
+  }
+
+  .meta-item { font-size: 12px; }
+
+  .meta-label {
+    display: block;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 10px;
+    color: var(--text-hint);
+    margin-bottom: 1px;
+  }
+
+  .meta-value { color: var(--text); }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    border-bottom: 0.5px solid var(--border);
+    padding-bottom: 6px;
+    margin: 1.5rem 0 10px;
+  }
+
+  .mission-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .mission-row:last-child { border-bottom: none; }
+
+  .mission-house { font-size: 13px; color: var(--text); }
+
+  .mission-role {
+    font-size: 11px;
+    color: var(--blue-text);
+    background: var(--blue-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-top: 2px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .mission-dates {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+    grid-row: 1 / 3;
+    grid-column: 2;
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  .attribution {
+    font-size: 11px;
+    color: var(--text-hint);
+    font-style: italic;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  /* Nun silhouette SVG placeholder */
+  .nun-silhouette { opacity: 0.35; }
+  .nun-silhouette-light { opacity: 0.7; }
+
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 12px;
+    color: var(--text-hint);
+    font-style: italic;
+    border-top: 0.5px solid var(--border);
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div>
+      <div class="site-title">Sisters of Saint Joseph</div>
+      <div class="site-sub">Archives — Philadelphia</div>
+    </div>
+    <div class="site-sub" id="headerCount"></div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="filters">
+    <span class="filter-label">Filter</span>
+    <div class="search-wrap">
+      <input type="text" id="search" placeholder="Search by name…" oninput="render()">
+    </div>
+    <select id="decadeFilter" onchange="render()">
+      <option value="">All decades</option>
+      <option value="1860">1860s</option>
+      <option value="1870">1870s</option>
+      <option value="1880">1880s</option>
+      <option value="1890">1890s</option>
+      <option value="1900">1900s</option>
+      <option value="1910">1910s</option>
+    </select>
+    <select id="roleFilter" onchange="render()">
+      <option value="">All roles</option>
+      <option value="Teacher">Teacher</option>
+      <option value="Superior">Superior</option>
+      <option value="Novice">Novice</option>
+      <option value="Assistant">Assistant</option>
+    </select>
+    <label class="no-photo-wrap">
+      <input type="checkbox" id="noPhotoFilter" onchange="render()"> Missing photo
+    </label>
+  </div>
+
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="modal-backdrop" id="modal" onclick="handleBackdropClick(event)">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<footer>Archives of the Sisters of Saint Joseph, Philadelphia</footer>
+
+<script>
+/* ============================================================
+   DATA — Add new sisters here. Each entry follows this shape.
+   Set hasPhoto: true and provide a photoUrl once you have images.
+   ============================================================ */
+const sisters = [
+  {
+    id: 1,
+    religiousName: "Magdalen de Pazzi",
+    surname: "Coleman",
+    birthName: "Teresa",
+    enteredYear: 1866,
+    entered: "8/7/1866",
+    received: "11/21/1866",
+    firstVows: "",
+    finalVows: "12/28/1868",
+    type: "Choir Sister",
+    born: "Ottawa, Canada, 1837",
+    died: "2/18/1924",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Joseph Convent, Philadelphia, PA", role: "Novice | Teacher", dates: "1866–1868" },
+      { house: "Mt. St. Joseph Convent, Philadelphia, PA", role: "Teacher", dates: "1890–1912" }
+    ]
+  },
+  {
+    id: 2,
+    religiousName: "M. Sacred Heart",
+    surname: "Stewart",
+    birthName: "Ellen",
+    enteredYear: 1875,
+    entered: "9/8/1875",
+    received: "12/27/1875",
+    firstVows: "",
+    finalVows: "12/27/1877",
+    type: "Choir Sister",
+    born: "Providence, RI, 1854",
+    died: "6/25/1919",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: false,
+    photoUrl: "",
+    missions: [
+      { house: "Immaculate Con., Camden, NJ", role: "Novice | Teacher", dates: "1876–1877" },
+      { house: "Mt. St. Joseph Convent", role: "Teacher", dates: "1890–1893" },
+      { house: "Star of Sea, Bayonne, NJ", role: "Superior", dates: "1893–1894" },
+      { house: "Mt. St. Joseph Convent", role: "Assistant", dates: "1894–1901" },
+      { house: "Our Lady of Mercy, Phila., PA", role: "Superior", dates: "1897" },
+      { house: "St. Joseph Academy, McSherrystown, PA", role: "Superior", dates: "1901–1912" }
+    ]
+  }
+  /* Add more sisters here — copy one of the blocks above and edit the values */
+];
+
+/* ============================================================
+   SVG PLACEHOLDERS
+   ============================================================ */
+function nunSVG(w, h, light) {
+  const cls = light ? 'nun-silhouette-light' : 'nun-silhouette';
+  const fill = light ? 'white' : '#ffffff';
+  return `<svg width="${w}" height="${h}" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="${cls}">
+    <ellipse cx="30" cy="22" rx="14" ry="16" fill="${fill}"/>
+    <path d="M6 80c0-13 11-24 24-24s24 11 24 24" fill="${fill}"/>
+    <path d="M17 5 Q30 0 43 5 Q48 13 45 23 Q39 10 30 10 Q21 10 15 23 Q12 13 17 5Z" fill="${light ? '#b5d4f4' : '#7cb3e8'}"/>
+  </svg>`;
+}
+
+/* ============================================================
+   FILTERING
+   ============================================================ */
+function decade(yr) { return Math.floor(yr / 10) * 10; }
+
+function matchesFilters(s) {
+  const q = (document.getElementById('search').value || '').toLowerCase().trim();
+  const dec = document.getElementById('decadeFilter').value;
+  const role = document.getElementById('roleFilter').value;
+  const noPhoto = document.getElementById('noPhotoFilter').checked;
+
+  const nameMatch = !q ||
+    (s.religiousName + ' ' + s.surname + ' ' + s.birthName).toLowerCase().includes(q);
+  const decMatch = !dec || decade(s.enteredYear) === parseInt(dec);
+  const roleMatch = !role || s.missions.some(m => m.role.includes(role));
+  const photoMatch = !noPhoto || !s.hasPhoto;
+
+  return nameMatch && decMatch && roleMatch && photoMatch;
+}
+
+/* ============================================================
+   RENDER GRID
+   ============================================================ */
+function render() {
+  const filtered = sisters.filter(matchesFilters);
+  const total = sisters.length;
+  document.getElementById('count').textContent =
+    filtered.length === total
+      ? `${total} sisters`
+      : `${filtered.length} of ${total} sisters`;
+  document.getElementById('headerCount').textContent =
+    `${total} sisters`;
+
+  const grid = document.getElementById('grid');
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="empty">No sisters match these filters.</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(s => {
+    const roles = [...new Set(s.missions.map(m => m.role.split('|')[0].trim()))].join(', ');
+    const photoArea = s.hasPhoto && s.photoUrl
+      ? `<img src="${s.photoUrl}" alt="Portrait of ${s.religiousName} ${s.surname}">`
+      : nunSVG(54, 72, true);
+    const areaClass = (s.hasPhoto && s.photoUrl) ? '' : '';
+
+    return `<div class="card" onclick="openModal(${s.id})" role="button" tabindex="0"
+        onkeydown="if(event.key==='Enter')openModal(${s.id})">
+      <div class="card-photo-area${!s.hasPhoto ? ' no-photo' : ''}">
+        ${photoArea}
+        <span class="card-year-badge">'${String(s.enteredYear).slice(2)}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-religious-name">${s.religiousName}</div>
+        <div class="card-surname">${s.surname}</div>
+        <div class="card-roles">${roles}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+function openModal(id) {
+  const s = sisters.find(x => x.id === id);
+  if (!s) return;
+
+  const photoArea = s.hasPhoto && s.photoUrl
+    ? `<img src="${s.photoUrl}" alt="Portrait of ${s.religiousName} ${s.surname}">`
+    : nunSVG(64, 86, true);
+
+  const metaRows = [
+    ['Birth name', s.birthName],
+    ['Born', s.born],
+    ['Entered', s.entered],
+    ['Received', s.received],
+    s.firstVows ? ['First vows', s.firstVows] : null,
+    ['Final vows', s.finalVows],
+    ['Status', s.type],
+    ['Died', s.died],
+    ['Buried', s.buried],
+  ].filter(Boolean);
+
+  const metaHtml = metaRows.map(([label, val]) =>
+    val ? `<div class="meta-item"><span class="meta-label">${label}</span><span class="meta-value">${val}</span></div>` : ''
+  ).join('');
+
+  const missionsHtml = s.missions.map(m => `
+    <div class="mission-row">
+      <div class="mission-house">${m.house}</div>
+      <div class="mission-dates">${m.dates}</div>
+      <div><span class="mission-role">${m.role}</span></div>
+    </div>
+  `).join('');
+
+  document.getElementById('modalContent').innerHTML = `
+    <button class="modal-close" onclick="closeModal()">Close</button>
+    <div class="modal-top">
+      <div class="modal-photo-area${!s.hasPhoto ? ' no-photo' : ''}">${photoArea}</div>
+      <div style="flex:1;min-width:0">
+        <div class="modal-name">${s.religiousName}</div>
+        <div class="modal-surname">${s.surname}</div>
+        <div class="modal-meta">${metaHtml}</div>
+      </div>
+    </div>
+    <div class="section-title">Mission stats</div>
+    ${missionsHtml}
+    <div class="attribution">Archives of the Sisters of Saint Joseph, Philadelphia</div>
+  `;
+
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modal').focus();
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+function handleBackdropClick(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+render();
+document.getElementById('headerCount').textContent = `${sisters.length} sisters`;
+</script>
+</body>
+</html>

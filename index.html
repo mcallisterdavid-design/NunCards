@@ -230,6 +230,25 @@
     margin-top: 6px;
   }
 
+  .card-badge {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 7px;
+    border-radius: 4px;
+    line-height: 1.3;
+    text-align: center;
+    max-width: 80px;
+  }
+  .badge-civil-war { background: #f5d85a; color: #5a3e00; }
+  .badge-influenza { background: linear-gradient(135deg,#c8e6ff,#d8f0d8,#c8e6ff); color: #1a4a1a; border: 0.5px solid #a0c8a0; }
+  .badge-superior-general { background: #ddd; color: #333; }
+  .modal-badge { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; padding:3px 10px; border-radius:5px; margin-top:8px; }
+
   .empty {
     grid-column: 1 / -1;
     text-align: center;
@@ -471,6 +490,97 @@
 const sisters = [
   {
     id: 1,
+    religiousName: "Euphrasia",
+    surname: "Schmeltzer",
+    birthName: "Mary",
+    enteredYear: 1854,
+    entered: "3/14/1854",
+    received: "9/30/1854",
+    firstVows: "",
+    finalVows: "3/19/1857",
+    type: "Choir Sister",
+    born: "Sankt Ingbert, Saarland, Germany, 1833",
+    died: "12/11/1887",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. John Orphan Asylum, Phila., PA", role: "Novice | Teacher", dates: "1854–1857" },
+      { house: "St. John Orphan Asylum, Phila., PA", role: "Teacher", dates: "1860" },
+      { house: "St. John Orphan Asylum, Phila., PA", role: "Teacher", dates: "1880–1887" }
+    ]
+  },
+  {
+    id: 2,
+    religiousName: "Colette",
+    surname: "Reilly",
+    birthName: "Isabelle",
+    enteredYear: 1855,
+    entered: "9/20/1855",
+    received: "12/27/1855",
+    firstVows: "",
+    finalVows: "8/12/1858",
+    type: "Choir Sister",
+    born: "Donaghmore, Donegal, Ireland, 1837",
+    died: "11/29/1909",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Philip Neri, Phila., PA", role: "Novice | Teacher", dates: "1856–1858" },
+      { house: "St. Patrick, Pottsville, PA", role: "Teacher", dates: "1860" },
+      { house: "St. Anne, Phila., PA", role: "Teacher", dates: "1870" },
+      { house: "St. Ann's Widow Asylum, Phila., PA", role: "Superior", dates: "1880–1909" }
+    ]
+  },
+  {
+    id: 3,
+    religiousName: "Dominic",
+    surname: "Lannen",
+    birthName: "Mary",
+    enteredYear: 1860,
+    entered: "4/10/1860",
+    received: "12/8/1860",
+    firstVows: "",
+    finalVows: "9/9/1862",
+    type: "Choir Sister",
+    born: "Waterford, Ireland, 1839",
+    died: "4/16/1904",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Jos. Convent", role: "Novice | Teacher", dates: "1860–1861" },
+      { house: "St. Joseph, Brandywine, DE", role: "Teacher", dates: "1861–1862" },
+      { house: "St. Vincent de Paul, Phila., PA", role: "Superior", dates: "1867–1875" },
+      { house: "Cathedral School, Phila., PA", role: "Superior", dates: "1879–1900" }
+    ]
+  },
+  {
+    id: 4,
+    religiousName: "St. Gervase",
+    surname: "Morton",
+    birthName: "Annie",
+    enteredYear: 1862,
+    entered: "7/24/1862",
+    received: "12/27/1862",
+    firstVows: "",
+    finalVows: "12/29/1864",
+    type: "Choir Sister",
+    born: "Tyrone, N. Ireland, 1844",
+    died: "1/20/1925",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Jos. Convent", role: "Novice | Teacher", dates: "1862–1864" },
+      { house: "St. Augustine, Phila., PA", role: "Teacher | Superior", dates: "1870–1885" },
+      { house: "Nativity BVM, Phila., PA", role: "Superior", dates: "1885–1907" },
+      { house: "Cathedral School, Phila., PA", role: "Superior", dates: "1907–1912" }
+    ]
+  },
+  {
+    id: 5,
     religiousName: "Magdalen de Pazzi",
     surname: "Coleman",
     birthName: "Teresa",
@@ -484,14 +594,212 @@ const sisters = [
     died: "2/18/1924",
     buried: "Mt. St. Joseph Cemetery",
     hasPhoto: true,
-    photoUrl: "/images/magcole.jpg",
+    photoUrl: "",
     missions: [
       { house: "Mt. St. Joseph Convent, Philadelphia, PA", role: "Novice | Teacher", dates: "1866–1868" },
       { house: "Mt. St. Joseph Convent, Philadelphia, PA", role: "Teacher", dates: "1890–1912" }
     ]
   },
   {
-    id: 2,
+    id: 6,
+    religiousName: "Macrina",
+    surname: "Harper",
+    birthName: "Mary",
+    enteredYear: 1866,
+    entered: "9/24/1866",
+    received: "3/19/1867",
+    firstVows: "",
+    finalVows: "3/29/1869",
+    type: "Lay Sister",
+    born: "Mallow, Cork, Ireland, 1838",
+    died: "1/7/1918",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Joseph Convent, Philadelphia, PA", role: "Novice", dates: "1867–1868" },
+      { house: "Catholic Home, Philadelphia, PA", role: "Kitchen", dates: "1874–1875" },
+      { house: "Mt. St. Joseph Convent, Philadelphia, PA", role: "Kitchen", dates: "1890–1912" }
+    ]
+  },
+  {
+    id: 7,
+    religiousName: "Baptista",
+    surname: "Kieran",
+    birthName: "Teresa",
+    enteredYear: 1867,
+    entered: "7/8/1867",
+    received: "12/27/1867",
+    firstVows: "",
+    finalVows: "12/27/1869",
+    type: "Choir Sister",
+    born: "Armagh, N. Ireland, 1848",
+    died: "6/2/1940",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Joseph Convent, Philadelphia, PA", role: "Novice | Teacher", dates: "1867–1869" },
+      { house: "Immaculate Con., Camden, NJ", role: "Teacher", dates: "1874" },
+      { house: "St. Augustine, Phila., PA", role: "Teacher", dates: "1880" },
+      { house: "Cathedral School, Phila., PA", role: "Ass't | Music Teacher", dates: "1890–1923" }
+    ]
+  },
+  {
+    id: 8,
+    religiousName: "Urbana",
+    surname: "Coleman",
+    birthName: "Eliza",
+    enteredYear: 1867,
+    entered: "8/1/1867",
+    received: "12/27/1867",
+    firstVows: "",
+    finalVows: "12/27/1869",
+    type: "Choir Sister",
+    born: "Lower Canada, Canada, 1841",
+    died: "8/14/1912",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Jos. Convent", role: "Novice | Teacher", dates: "1867–1869" },
+      { house: "St. Anne, Phila., PA", role: "Teacher", dates: "1875" },
+      { house: "[Old] St. Mary, Phila., PA", role: "Teacher", dates: "1880" },
+      { house: "Our Lady, Star of Sea, Bayonne, NJ", role: "Teacher", dates: "1881–1884" },
+      { house: "Immaculate Con., Phila., PA", role: "Teacher", dates: "1890" },
+      { house: "Mt. St. Jos. Convent", role: "Teacher", dates: "1892–1912" }
+    ]
+  },
+  {
+    id: 9,
+    religiousName: "Victoria",
+    surname: "McGeary",
+    birthName: "Catharine",
+    enteredYear: 1867,
+    entered: "12/26/1867",
+    received: "8/15/1868",
+    firstVows: "",
+    finalVows: "8/20/1870",
+    type: "Choir Sister",
+    born: "Philadelphia, PA, 1851",
+    died: "7/19/1930",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Vincent, Phila., PA", role: "Lay Teacher", dates: "1867–1868" },
+      { house: "St. Joseph, Willing Alley, Phila., PA", role: "Teacher", dates: "1880" },
+      { house: "St. Mary, Lonaconing, MD", role: "Teacher", dates: "1890–1893" },
+      { house: "Our Lady of Mercy, Phila., PA", role: "Teacher", dates: "1896–1897" },
+      { house: "St. Stephen, Phila., PA", role: "Teacher", dates: "1898" },
+      { house: "St. Patrick, Phila., PA", role: "Assistant", dates: "1907–1908" },
+      { house: "St. Anne, Phila., PA", role: "Teacher", dates: "1910–1920" }
+    ]
+  },
+  {
+    id: 10,
+    religiousName: "Zita",
+    surname: "Lavin",
+    birthName: "Mary",
+    enteredYear: 1869,
+    entered: "8/15/1869",
+    received: "12/27/1869",
+    firstVows: "",
+    finalVows: "12/27/1871",
+    type: "Lay Sister",
+    born: "Mayo, Ireland, 1848",
+    died: "4/18/1916",
+    buried: "Cemetery, McSherrystown, PA",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Vincent, Phila., PA", role: "Kitchen", dates: "1871–1880" },
+      { house: "St. Joseph, Willings Alley, Phila., PA", role: "Kitchen", dates: "1890–1893" },
+      { house: "St. Stephen, Phila., PA", role: "Kitchen", dates: "1893–1896" },
+      { house: "Star of the Sea, Balt., MD", role: "Kitchen", dates: "1898–1900" },
+      { house: "St. Joseph Acad., McSherrystown, PA", role: "Kitchen", dates: "1912" }
+    ]
+  },
+  {
+    id: 11,
+    religiousName: "St. Clare",
+    surname: "Loy",
+    birthName: "Rose",
+    enteredYear: 1871,
+    entered: "9/18/1871",
+    received: "8/22/1872",
+    firstVows: "",
+    finalVows: "8/22/1874",
+    type: "Choir Sister",
+    born: "Armagh, N. Ireland, 11/26/1849",
+    died: "11/9/1922",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Augustine, Phila., PA", role: "Novice | Teacher", dates: "1873–1874" },
+      { house: "St. Patrick, Phila., PA", role: "Teacher", dates: "1880" },
+      { house: "St. Michael, Phila., PA", role: "Teacher", dates: "1890" },
+      { house: "Nativity, Phila., PA", role: "Teacher", dates: "1892–1893" },
+      { house: "St. Augustine, Phila., PA", role: "Teacher", dates: "1893–1896" },
+      { house: "St. Joseph, Willing Alley, Phila., PA", role: "Teacher", dates: "1896–1912" },
+      { house: "St. John Orphanage", role: "Seamstress", dates: "1920" }
+    ]
+  },
+  {
+    id: 12,
+    religiousName: "Leocadia",
+    surname: "Gibney",
+    birthName: "Katharine",
+    enteredYear: 1871,
+    entered: "9/8/1871",
+    received: "4/18/1872",
+    firstVows: "",
+    finalVows: "8/22/1874",
+    type: "Choir Sister",
+    born: "S. Yorkshire, England, 1850",
+    died: "2/13/1932",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Anne, Phila., PA", role: "Teacher", dates: "1880" },
+      { house: "St. Augustine, Phila., PA", role: "Teacher", dates: "1885–1886" },
+      { house: "St. Mary, Lonaconing, MD", role: "Teacher", dates: "1886–1887" },
+      { house: "St. Joseph, Willings Alley", role: "Teacher", dates: "1887–1890" },
+      { house: "Mother of Sorrows, Phila.", role: "Teacher", dates: "1890–1892" },
+      { house: "St. Vincent, Phila., PA", role: "Teacher", dates: "1912" },
+      { house: "Lady of Victory, Phila., PA", role: "Teacher", dates: "1921–1923" }
+    ]
+  },
+  {
+    id: 13,
+    religiousName: "Euphrasine",
+    surname: "Power",
+    birthName: "Hannah",
+    enteredYear: 1873,
+    entered: "7/14/1873",
+    received: "12/27/1873",
+    firstVows: "",
+    finalVows: "12/27/1875",
+    type: "Choir Sister",
+    born: "Waterford, Ireland, 1852",
+    died: "6/4/1940",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Michael, Phila., PA", role: "Teacher", dates: "1880" },
+      { house: "St. Bridget, Phila., PA", role: "Assistant", dates: "1890–1893" },
+      { house: "St. Stephen, Phila., PA", role: "Teacher", dates: "1895–1898" },
+      { house: "Holy Infancy, Beth., PA", role: "Assistant", dates: "1902" },
+      { house: "St. Patrick, Pottsville, PA", role: "Teacher", dates: "1903–1904" },
+      { house: "St. Augustine, Phila., PA", role: "Teacher", dates: "1910" },
+      { house: "Ascension, Phila., PA", role: "Teacher", dates: "1912–1923" }
+    ]
+  },
+  {
+    id: 14,
     religiousName: "M. Sacred Heart",
     surname: "Stewart",
     birthName: "Ellen",
@@ -504,7 +812,7 @@ const sisters = [
     born: "Providence, RI, 1854",
     died: "6/25/1919",
     buried: "Mt. St. Joseph Cemetery",
-    hasPhoto: false,
+    hasPhoto: true,
     photoUrl: "",
     missions: [
       { house: "Immaculate Con., Camden, NJ", role: "Novice | Teacher", dates: "1876–1877" },
@@ -513,6 +821,377 @@ const sisters = [
       { house: "Mt. St. Joseph Convent", role: "Assistant", dates: "1894–1901" },
       { house: "Our Lady of Mercy, Phila., PA", role: "Superior", dates: "1897" },
       { house: "St. Joseph Academy, McSherrystown, PA", role: "Superior", dates: "1901–1912" }
+    ]
+  },
+  {
+    id: 15,
+    religiousName: "Mary Edgar",
+    surname: "McDermott",
+    birthName: "Marie",
+    enteredYear: 1921,
+    entered: "1/21/1921",
+    received: "7/28/1921",
+    firstVows: "8/8/1923",
+    finalVows: "8/24/1928",
+    type: "Lay Sister",
+    born: "Philadelphia, PA, 11/6/1903",
+    died: "9/27/1979",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Andrew, Drexel Hill, PA", role: "Novice | Cook", dates: "1922–1926" },
+      { house: "St. Mary Academy, Phila., PA", role: "Cook", dates: "1926–1927" },
+      { house: "Norwood Academy", role: "Cook", dates: "1927–1932" },
+      { house: "St. Mary Academy, Phila., PA", role: "Cook", dates: "1932–1941" },
+      { house: "Mt. St. Joseph Convent", role: "Domestic Staff", dates: "1941–1979" }
+    ]
+  },
+  {
+    id: 16,
+    religiousName: "Edward Vincent",
+    surname: "McDermott",
+    birthName: "Eliza",
+    enteredYear: 1921,
+    entered: "8/1/1921",
+    received: "12/27/1921",
+    firstVows: "",
+    finalVows: "12/27/1923",
+    type: "Choir Sister",
+    born: "Lower Canada, Canada, 1841",
+    died: "8/14/1912",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Jos. Convent", role: "Novice | Teacher", dates: "1867–1869" },
+      { house: "St. Anne, Phila., PA", role: "Teacher", dates: "1875" },
+      { house: "[Old] St. Mary, Phila., PA", role: "Teacher", dates: "1880" },
+      { house: "Our Lady, Star of Sea, Bayonne, NJ", role: "Teacher", dates: "1881–1884" },
+      { house: "Immaculate Con., Phila., PA", role: "Teacher", dates: "1890" },
+      { house: "Mt. St. Jos. Convent", role: "Teacher", dates: "1892–1912" }
+    ]
+  },
+  {
+    id: 17,
+    religiousName: "Mary Julia",
+    surname: "Daly",
+    birthName: "Mary",
+    enteredYear: 1924,
+    entered: "9/8/1924",
+    received: "4/15/1925",
+    firstVows: "8/23/1927",
+    finalVows: "8/23/1932",
+    type: "Choir Sister",
+    born: "Washington, DC, 2/18/1905",
+    died: "1/15/1999",
+    buried: "St. Joseph Villa Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "Mt. St. Joseph Academy, Philadelphia, PA", role: "Novice | Teacher", dates: "1926" },
+      { house: "Star of the Sea, Baltimore, MD", role: "Teacher", dates: "1926–1931" },
+      { house: "Chestnut Hill College", role: "Faculty", dates: "1931–1993" },
+      { house: "St. Joseph Villa, Flourtown, PA", role: "Resident", dates: "1993–1999" }
+    ]
+  },
+  {
+    id: 18,
+    religiousName: "Bartholomew Marie",
+    surname: "Daly",
+    birthName: "Julia",
+    enteredYear: 1926,
+    entered: "9/8/1926",
+    received: "4/18/1927",
+    firstVows: "8/23/1929",
+    finalVows: "8/25/1934",
+    type: "Choir Sister",
+    born: "Washington, DC, 10/28/1906",
+    died: "8/27/1992",
+    buried: "St. Joseph Villa Cemetery",
+    hasPhoto: true,
+    photoUrl: "",
+    missions: [
+      { house: "St. Stephen, Phila., PA", role: "Novice | Teacher", dates: "1928–1931" },
+      { house: "St. Matthew, Consh., PA", role: "Teacher", dates: "1931–1941" },
+      { house: "St. Patrick, Phila., PA", role: "Teacher", dates: "1941–1944" },
+      { house: "O.L. Valley, Orange, NJ", role: "Teacher", dates: "1944–1945" },
+      { house: "Holy Name, Wash., DC", role: "Teacher", dates: "1945–1949" },
+      { house: "Imm. Conc., Jenk., PA", role: "Teacher", dates: "1949–1951" },
+      { house: "St. Columba, Phila., PA", role: "Teacher", dates: "1951–1960" },
+      { house: "St. Jerome, Phila., PA", role: "Teacher", dates: "1960–1970" },
+      { house: "St. John, Hillsdale, NJ", role: "Teacher", dates: "1970–1971" },
+      { house: "St. Gregory, Magn., NJ", role: "Teacher", dates: "1971–1981" },
+      { house: "St. Joseph Villa", role: "Clerical Staff", dates: "1981–1991" }
+    ]
+  }
+  {
+    id: 19,
+    religiousName: "St. John",
+    surname: "Fournier",
+    birthName: "Julia",
+    enteredYear: 1847,
+    entered: "5/5/1847",
+    received: "",
+    firstVows: "",
+    finalVows: "",
+    type: "Choir Sister",
+    born: "Arbois, France, November 11, 1814",
+    died: "10/15/1875",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "fournier.png",
+    badge: "superior-general",
+    badgeLabel: "Superior General",
+    missions: [
+      { house: "St. Joseph Hospital", role: "Novice", dates: "1850" },
+      { house: "St. John Orphanage", role: "Novice", dates: "1850–1852" },
+      { house: "Camp Curtin, Harrisburg, PA", role: "Nurse", dates: "1862" },
+      { house: "The Whilldin, Fortress Monroe, VA", role: "Nurse", dates: "1862" },
+      { house: "Saint Anne, Philadelphia, PA", role: "Kitchen", dates: "1870–1882" }
+    ]
+  },
+  {
+    id: 20,
+    religiousName: "Thecla",
+    surname: "Brennan",
+    birthName: "Margaret",
+    enteredYear: 1847,
+    entered: "1847",
+    received: "3/19/1850",
+    firstVows: "",
+    finalVows: "5/29/1852",
+    type: "Lay Sister",
+    born: "Kilkenny, Ireland, 1825",
+    died: "8/23/1882",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: false,
+    photoUrl: "",
+    badge: "superior-general",
+    badgeLabel: "Superior General",
+    missions: [
+      { house: "St. Joseph Hospital", role: "Novice", dates: "1850" },
+      { house: "St. John Orphanage", role: "Novice", dates: "1850–1852" },
+      { house: "Camp Curtin, Harrisburg, PA", role: "Nurse", dates: "1862" },
+      { house: "The Whilldin, Fortress Monroe, VA", role: "Nurse", dates: "1862" },
+      { house: "Saint Anne, Philadelphia, PA", role: "Kitchen", dates: "1870–1882" }
+    ]
+  },
+  {
+    id: 21,
+    religiousName: "M. Felix",
+    surname: "Hafferty",
+    birthName: "Anne",
+    enteredYear: 1858,
+    entered: "10/5/1858",
+    received: "3/19/1859",
+    firstVows: "",
+    finalVows: "3/19/1861",
+    type: "Lay Sister",
+    born: "Galway, Ireland, 3/24/1834",
+    died: "6/12/1908",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "hafferty.png",
+    badge: "civil-war",
+    badgeLabel: "Civil War Nurse",
+    notes: "No photo of Sr. Felix exists. An unidentified Lay Sister c. 1860 is pictured.",
+    missions: [
+      { house: "St. Jos. Willings Alley", role: "Novice", dates: "1858–1861" },
+      { house: "Fortress Monroe, VA", role: "Nurse", dates: "1862" },
+      { house: "St. John, Newark, NJ", role: "Kitchen", dates: "1912–1920" },
+      { house: "Holy Name, Washington, DC", role: "Kitchen", dates: "1939–1942" }
+    ]
+  },
+  {
+    id: 22,
+    religiousName: "Mary of Mount Carmel",
+    surname: "Egan",
+    birthName: "Eliza",
+    enteredYear: 1858,
+    entered: "4/12/1858",
+    received: "7/19/1858",
+    firstVows: "",
+    finalVows: "7/31/1860",
+    type: "Choir Sister",
+    born: "Offaly, Ireland, March 1831",
+    died: "9/15/1915",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "egan.png",
+    badge: "civil-war",
+    badgeLabel: "Civil War Nurse",
+    notes: "No photo of Sr. Mount Carmel exists. An unidentified Choir Sister c. 1860 is pictured.",
+    missions: [
+      { house: "Mt. St. Joseph Convent", role: "Novice", dates: "1858–1859" },
+      { house: "St. Philip Neri, Phila., PA", role: "Novice | Teacher", dates: "1859–1862" },
+      { house: "Fortress Monroe, VA", role: "Nurse", dates: "1862" },
+      { house: "St. Michael, Phila., PA", role: "Teacher", dates: "1870–1876" },
+      { house: "St. Peter, Westernport, MD", role: "Superior", dates: "1876–1880" },
+      { house: "Cathedral, Phila., PA", role: "Assistant", dates: "1890–1891" },
+      { house: "St. Charles Borromeo Seminary", role: "Assistant", dates: "1891–1912" }
+    ]
+  },
+  {
+    id: 23,
+    religiousName: "M. Ida",
+    surname: "Deehan",
+    birthName: "Mary",
+    enteredYear: 1873,
+    entered: "9/10/1873",
+    received: "12/27/1873",
+    firstVows: "",
+    finalVows: "12/27/1875",
+    type: "Choir Sister",
+    born: "Galway, Ireland, 1853",
+    died: "8/29/1910",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "deehan.png",
+    missions: [
+      { house: "Mt. St. Joseph", role: "Novice", dates: "1873–1874" },
+      { house: "St. Patrick, Phila., PA", role: "Novice", dates: "1874–1875" },
+      { house: "St. Peter, West., MD", role: "Teacher", dates: "1875–1896" },
+      { house: "St. Augustine, Phila., PA", role: "Superior", dates: "1896–1898" },
+      { house: "Epiphany, Phila., PA", role: "Superior", dates: "1898–1903" }
+    ]
+  },
+  {
+    id: 24,
+    religiousName: "Consolata",
+    surname: "Hand",
+    birthName: "Mary",
+    enteredYear: 1876,
+    entered: "9/22/1876",
+    received: "4/5/1877",
+    firstVows: "",
+    finalVows: "5/8/1879",
+    type: "Choir Sister",
+    born: "Phila., PA, 1858",
+    died: "11/8/1932",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "hand.png",
+    badge: "influenza",
+    badgeLabel: "Influenza Nurse 1918",
+    missions: [
+      { house: "St. Vincent, Phila., PA", role: "Novice", dates: "1877–1879" },
+      { house: "St. John, Newark, NJ", role: "Teacher", dates: "1880" },
+      { house: "St. Patrick, Phila., PA", role: "Teacher", dates: "1890–1895" },
+      { house: "St. Anne, Phila., PA", role: "Teacher", dates: "1895–1901" },
+      { house: "St. Patrick, Phila., PA", role: "Teacher", dates: "1910–1918" },
+      { house: "Influenza Pandemic", role: "Volunteer Nurse", dates: "1918" }
+    ]
+  },
+  {
+    id: 25,
+    religiousName: "Annetta",
+    surname: "Farrell",
+    birthName: "Eliza",
+    enteredYear: 1877,
+    entered: "4/12/1877",
+    received: "12/27/1877",
+    firstVows: "",
+    finalVows: "8/16/1880",
+    type: "Choir Sister",
+    born: "New York, NY, 1853",
+    died: "9/16/1942",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "farrell.png",
+    badge: "influenza",
+    badgeLabel: "Influenza Nurse 1918",
+    missions: [
+      { house: "St. Joseph, Willings Alley, Phila., PA", role: "Novice", dates: "1878–1879" },
+      { house: "Cathedral School", role: "Novice | Teacher", dates: "1879–1901" },
+      { house: "St. Peter, Westernport, MD", role: "Assistant | Teacher", dates: "1901–1910" },
+      { house: "Influenza Pandemic", role: "Volunteer Nurse", dates: "1918" },
+      { house: "St. Colman, Ardmore, PA", role: "Teacher", dates: "1939–1940" }
+    ]
+  },
+  {
+    id: 26,
+    religiousName: "Benitia",
+    surname: "Barr",
+    birthName: "Sarah",
+    enteredYear: 1909,
+    entered: "1/3/1909",
+    received: "8/5/1909",
+    firstVows: "8/7/1911",
+    finalVows: "8/6/1921",
+    type: "Choir Sister",
+    born: "Phila., PA, 12/28/1884",
+    died: "12/6/1971",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "barr.png",
+    badge: "influenza",
+    badgeLabel: "Influenza Nurse 1918",
+    missions: [
+      { house: "Rosary, Phila., PA", role: "Novice | Teacher", dates: "1910–1913" },
+      { house: "St. Jos., Roselle, NJ", role: "Teacher", dates: "1913–1917" },
+      { house: "Influenza Pandemic", role: "Volunteer Nurse", dates: "1918" },
+      { house: "St. Francis Assisi, Phila., PA", role: "Teacher", dates: "1920–1923" },
+      { house: "St. Callistus, Phila., PA", role: "Teacher", dates: "1923–1938" },
+      { house: "Queen of Peace, N. Arlington, NJ", role: "Teacher", dates: "1938–1942" },
+      { house: "Archbishop Ryan School for the Deaf", role: "Teacher", dates: "1951–1961" },
+      { house: "St. Joseph Villa", role: "Resident", dates: "1968–1971" }
+    ]
+  },
+  {
+    id: 27,
+    religiousName: "Cordelia",
+    surname: "Gragan",
+    birthName: "Mary",
+    enteredYear: 1891,
+    entered: "9/8/1891",
+    received: "8/16/1892",
+    firstVows: "1/10/1895",
+    finalVows: "8/15/1900",
+    type: "Choir Sister",
+    born: "Vasselboro, ME, 1868",
+    died: "1/5/1953",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "gragan.png",
+    badge: "influenza",
+    badgeLabel: "Influenza Nurse 1918",
+    missions: [
+      { house: "St. John Evangelist", role: "Teacher", dates: "1899–1900" },
+      { house: "Gov't School for Indians, Carlisle, PA", role: "Teacher", dates: "1900–1901" },
+      { house: "Mt. St. Joseph Novitiate", role: "Teacher", dates: "1901–1906" },
+      { house: "St. Stephen, Phila., PA", role: "Teacher", dates: "1916–1918" },
+      { house: "Influenza Pandemic", role: "Volunteer Nurse", dates: "1918" },
+      { house: "St. Vincent, Phila., PA", role: "Teacher", dates: "1918–1920" },
+      { house: "Our Mother of Sorrows", role: "Teacher", dates: "1921–1936" },
+      { house: "Paradise Protectory, Abbottstown, PA", role: "Teacher", dates: "1936–1953" }
+    ]
+  },
+  {
+    id: 28,
+    religiousName: "Georgina",
+    surname: "Einwechter",
+    birthName: "Helen",
+    enteredYear: 1904,
+    entered: "9/6/1904",
+    received: "4/26/1905",
+    firstVows: "8/5/1907",
+    finalVows: "8/15/1912",
+    type: "Choir Sister",
+    born: "Phila., PA, 10/18/1885",
+    died: "1/19/1976",
+    buried: "Mt. St. Joseph Cemetery",
+    hasPhoto: true,
+    photoUrl: "eiw.png",
+    badge: "influenza",
+    badgeLabel: "Influenza Nurse 1918",
+    missions: [
+      { house: "St. Vincent, Phila., PA", role: "Novice | Teacher", dates: "1906–1909" },
+      { house: "St. Mary Academy", role: "Teacher", dates: "1915–1918" },
+      { house: "Influenza Pandemic", role: "Volunteer Nurse", dates: "1918" },
+      { house: "Visitation, BVM, Phila., PA", role: "Teacher", dates: "1918–1925" },
+      { house: "Columbia University", role: "Student", dates: "1926–1927" },
+      { house: "Chestnut Hill College", role: "Faculty", dates: "1927–1968" }
     ]
   }
   /* Add more sisters here — copy one of the blocks above and edit the values */
@@ -570,18 +1249,30 @@ function render() {
     return;
   }
 
+  const BADGE_LABELS = {
+    'civil-war': 'Civil War Nurse',
+    'influenza': 'Influenza Volunteer Nurse 1918',
+    'superior-general': 'Superior General'
+  };
+
   grid.innerHTML = filtered.map(s => {
     const roles = [...new Set(s.missions.map(m => m.role.split('|')[0].trim()))].join(', ');
-    const photoArea = s.hasPhoto && s.photoUrl
-      ? `<img src="${s.photoUrl}" alt="Portrait of ${s.religiousName} ${s.surname}">`
-      : nunSVG(54, 72, true);
-    const areaClass = (s.hasPhoto && s.photoUrl) ? '' : '';
+    const photoSrc = s.hasPhoto && s.photoUrl ? `images/${s.photoUrl}` : null;
+    const photoArea = photoSrc
+      ? `<img src="${photoSrc}" alt="Portrait of ${s.religiousName} ${s.surname}" onerror="this.style.display='none';this.nextSibling.style.display='flex'">`
+      : '';
+    const fallback = nunSVG(54, 72, true);
+    const badgeHtml = s.badge
+      ? `<span class="card-badge badge-${s.badge}">${s.badgeLabel || BADGE_LABELS[s.badge]}</span>`
+      : '';
 
     return `<div class="card" onclick="openModal(${s.id})" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')openModal(${s.id})">
-      <div class="card-photo-area${!s.hasPhoto ? ' no-photo' : ''}">
+      <div class="card-photo-area${!photoSrc ? ' no-photo' : ''}">
         ${photoArea}
+        <div style="display:${photoSrc ? 'none' : 'flex'};align-items:center;justify-content:center;width:100%;height:100%;position:absolute;inset:0">${fallback}</div>
         <span class="card-year-badge">'${String(s.enteredYear).slice(2)}</span>
+        ${badgeHtml}
       </div>
       <div class="card-body">
         <div class="card-religious-name">${s.religiousName}</div>
@@ -599,8 +1290,20 @@ function openModal(id) {
   const s = sisters.find(x => x.id === id);
   if (!s) return;
 
-  const photoArea = s.hasPhoto && s.photoUrl
-    ? `<img src="${s.photoUrl}" alt="Portrait of ${s.religiousName} ${s.surname}">`
+  const BADGE_LABELS = {
+    'civil-war': 'Civil War Nurse',
+    'influenza': 'Influenza Volunteer Nurse 1918',
+    'superior-general': 'Superior General'
+  };
+  const BADGE_COLORS = {
+    'civil-war': 'background:#f5d85a;color:#5a3e00',
+    'influenza': 'background:linear-gradient(135deg,#c8e6ff,#d8f0d8,#c8e6ff);color:#1a4a1a;border:0.5px solid #a0c8a0',
+    'superior-general': 'background:#ddd;color:#333'
+  };
+
+  const photoSrc = s.hasPhoto && s.photoUrl ? `images/${s.photoUrl}` : null;
+  const photoArea = photoSrc
+    ? `<img src="${photoSrc}" alt="Portrait of ${s.religiousName} ${s.surname}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentNode.innerHTML='${nunSVG(64,86,true).replace(/'/g,"\\'")}'">`
     : nunSVG(64, 86, true);
 
   const metaRows = [
@@ -627,18 +1330,28 @@ function openModal(id) {
     </div>
   `).join('');
 
+  const badgeHtml = s.badge
+    ? `<div><span class="modal-badge" style="${BADGE_COLORS[s.badge]}">${s.badgeLabel || BADGE_LABELS[s.badge]}</span></div>`
+    : '';
+
+  const notesHtml = s.notes
+    ? `<div style="font-size:11px;color:var(--text-hint);font-style:italic;margin-top:1rem">${s.notes}</div>`
+    : '';
+
   document.getElementById('modalContent').innerHTML = `
     <button class="modal-close" onclick="closeModal()">Close</button>
     <div class="modal-top">
-      <div class="modal-photo-area${!s.hasPhoto ? ' no-photo' : ''}">${photoArea}</div>
+      <div class="modal-photo-area${!photoSrc ? ' no-photo' : ''}">${photoArea}</div>
       <div style="flex:1;min-width:0">
         <div class="modal-name">${s.religiousName}</div>
         <div class="modal-surname">${s.surname}</div>
+        ${badgeHtml}
         <div class="modal-meta">${metaHtml}</div>
       </div>
     </div>
     <div class="section-title">Mission stats</div>
     ${missionsHtml}
+    ${notesHtml}
     <div class="attribution">Archives of the Sisters of Saint Joseph, Philadelphia</div>
   `;
 
